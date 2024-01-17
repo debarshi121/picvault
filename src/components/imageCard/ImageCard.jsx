@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { ImageDialog } from "../imageDialog/ImageDialog";
 
 const ImageCard = ({data}) => {
 	return (
@@ -13,6 +14,7 @@ const ImageCard = ({data}) => {
 					</div>
 				))}
 			</div>
+            {/* <ImageDialog/> */}
 		</div>
 	);
 };

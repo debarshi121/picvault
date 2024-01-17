@@ -18,7 +18,7 @@ const Page = async ({searchParams}) => {
 			<div className="bg-white w-full absolute min-h-[500px]">
 				<div className="w-full bg-gray-100 flex gap-2 p-6 overflow-x-auto hide-scrollbar">
 					{Array.from({length: 12}).map((item) => (
-						<div key={item} className="rounded text-sm border border-gray-300 min-w-36 text-center py-2">
+						<div key={item} className="rounded-md text-sm border border-gray-300 text-gray-600 px-5 text-center py-1">
 							Digital
 						</div>
 					))}
