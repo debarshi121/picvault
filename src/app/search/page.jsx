@@ -1,8 +1,10 @@
 import ImageCard from "@/components/imageCard/ImageCard";
 import Navbar from "@/components/navbar/Navbar";
 import SearchBar from "@/components/searchbar/SearchBar";
+import {getSearchResults} from "@/services/pixabayService";
 
-const page = () => {
+const Page = async ({searchParams}) => {
+	const data = await getSearchResults(searchParams.q);
 	return (
 		<main className="h-screen relative bg-cover bg-center" style={{backgroundImage: 'url("/bg.jpg")'}}>
 			<div className="bg-black absolute inset-0 opacity-50"></div>
@@ -22,9 +24,9 @@ const page = () => {
 					))}
 				</div>
 
-				<div className="w-full grid grid-cols-3 gap-10 px-6 py-10 container">
-					{Array.from({length: 12}).map((item, i) => (
-						<ImageCard key={i} />
+				<div className="w-full md:masonry-2-col lg:masonry-3-col box-border mx-auto before:box-inherit after:box-inherit py-10 container">
+					{data.hits.map((item, i) => (
+						<ImageCard key={i} data={item} />
 					))}
 				</div>
 			</div>
@@ -32,4 +34,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;
