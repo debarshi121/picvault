@@ -1,22 +1,16 @@
 import Link from "next/link";
 import React from "react";
+import NavLinks from "./navlinks/NavLinks";
+import {auth} from "@/lib/auth";
 
-const Navbar = () => {
+const Navbar = async () => {
+	const session = await auth();
 	return (
-		<nav className="backdrop-filter backdrop-blur-lg py-4 px-8 w-full rounded-md border-2 border-gray-400 flex justify-between font-semibold">
+		<nav className="backdrop-filter backdrop-blur-lg py-4 px-8 w-full rounded-md border-2 border-gray-300 flex justify-between font-semibold">
 			<Link href="/" className="text-white">
 				Homepage
 			</Link>
-			<ul className="flex space-x-6">
-				<li>
-					<a href="#" className="text-white">
-						Login
-					</a>
-				</li>
-				<li>
-					<button className="text-white border-2 rounded-md px-2">Create Account</button>
-				</li>
-			</ul>
+			<NavLinks session={session} />
 		</nav>
 	);
 };

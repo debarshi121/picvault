@@ -2,7 +2,6 @@ import ImageCard from "@/components/imageCard/ImageCard";
 import Navbar from "@/components/navbar/Navbar";
 import SearchBar from "@/components/searchbar/SearchBar";
 import {getSearchResults} from "@/services/pixabayService";
-import "@/app/search/search.css";
 
 const Page = async ({searchParams}) => {
 	const data = await getSearchResults(searchParams.q);

@@ -10,7 +10,7 @@ export default function Home() {
 					Discover over 2,000,000 <br /> free Stock Images
 				</h1>
 				<SearchBar />
-				<div className="rounded-md mx-auto bg-opacity-50 backdrop-filter backdrop-blur-md border-2 text-white border-gray-400  py-1 px-5 max-w-fit mt-5">
+				<div className="rounded-md mx-auto backdrop-filter backdrop-blur-lg border-2 text-white border-gray-300 py-1 px-5 max-w-fit mt-5">
 					<span className="text-sm font-semibold">Trending: </span> flowers, love, forest, river
 				</div>
 			</div>
