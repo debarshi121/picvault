@@ -7,7 +7,7 @@ import "@/app/search/search.css";
 const Page = async ({searchParams}) => {
 	const data = await getSearchResults(searchParams.q);
 	return (
-		<main className="min-h-screen">
+		<main className="min-h-screen h-full">
 			<div className="bg-cover bg-center" style={{backgroundImage: 'url("https://cdn.pixabay.com/index/2024/01/15/23-56-06-601_1920x550.jpg")'}}>
 				<div className="container mx-auto text-center py-10">
 					<Navbar />

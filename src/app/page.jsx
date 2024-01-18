@@ -3,11 +3,9 @@ import SearchBar from "@/components/searchbar/SearchBar";
 
 export default function Home() {
 	return (
-		<main className="h-screen relative bg-cover bg-center" style={{backgroundImage: 'url("/bg.jpg")'}}>
-			<div className="bg-black absolute inset-0 opacity-50"></div>
-			<Navbar />
-
-			<div className="container mx-auto text-center relative z-10">
+		<main className="min-h-screen h-full relative bg-cover bg-center" style={{backgroundImage: 'url("https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg")'}}>
+			<div className="container mx-auto text-center py-10">
+				<Navbar />
 				<h1 className="text-6xl text-white font-bold mb-4 mt-24">
 					Discover over 2,000,000 <br /> free Stock Images
 				</h1>
