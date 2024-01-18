@@ -85,6 +85,10 @@
 			column-count: 2;
 			column-gap: 1em;
 		}
+        .masonry-1-col {
+			column-count: 1;
+			column-gap: 1em;
+		}
 		.break-inside {
 			break-inside: avoid;
 		}
