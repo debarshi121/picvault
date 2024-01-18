@@ -7,25 +7,27 @@ import "@/app/search/search.css";
 const Page = async ({searchParams}) => {
 	const data = await getSearchResults(searchParams.q);
 	return (
-		<main className="h-screen relative bg-cover bg-center" style={{backgroundImage: 'url("/bg.jpg")'}}>
-			<div className="bg-black absolute inset-0 opacity-50"></div>
-			<Navbar />
-
-			<div className="container mx-auto text-center">
-				<SearchBar />
-				<h1 className="text-3xl text-white font-bold my-8">Results: {searchParams.q}</h1>
+		<main className="min-h-screen">
+			<div className="bg-cover bg-center" style={{backgroundImage: 'url("https://cdn.pixabay.com/index/2024/01/15/23-56-06-601_1920x550.jpg")'}}>
+				<div className="container mx-auto text-center py-10">
+					<Navbar />
+					<SearchBar />
+					<h1 className="text-3xl text-white font-bold my-5">Results: {searchParams.q}</h1>
+				</div>
 			</div>
 
-			<div className="bg-white w-full absolute min-h-[500px]">
-				<div className="w-full bg-gray-100 flex justify-center gap-2 p-6 overflow-x-auto hide-scrollbar">
+			<div className="w-full bg-gray-100 ">
+				<div className="container mx-auto flex justify-center gap-2 p-5 overflow-x-auto hide-scrollbar">
 					{Array.from({length: 12}).map((item) => (
 						<div key={item} className="rounded-md text-sm border border-gray-300 text-gray-600 px-5 text-center py-1">
 							Digital
 						</div>
 					))}
 				</div>
+			</div>
 
-				<div className="container mx-auto py-10 col-3 masonry-3-col">
+			<div className="bg-white w-full min-h-[500px]">
+				<div className="container mx-auto py-10 col-3 masonry-1-col md:masonry-2-col lg:masonry-3-col">
 					{data.hits.map((item, i) => (
 						<ImageCard key={i} data={item} />
 					))}
