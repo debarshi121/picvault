@@ -2,13 +2,16 @@ import ImageCard from "@/components/imageCard/ImageCard";
 import Navbar from "@/components/navbar/Navbar";
 import SearchBar from "@/components/searchbar/SearchBar";
 import TrendingSearch from "@/components/trendingSearch/TrendingSearch";
+import {saveSearchHistory} from "@/lib/actions";
 import {getSearchResults} from "@/services/pixabayService";
 
 const Page = async ({searchParams}) => {
 	const data = await getSearchResults(searchParams.q);
+	await saveSearchHistory({keyword: searchParams.q});
+
 	return (
 		<main className="min-h-screen h-full">
-			<div className="bg-cover bg-center h-80" style={{backgroundImage: 'url("https://cdn.pixabay.com/index/2024/01/15/23-56-06-601_1920x550.jpg")'}}>
+			<div className="bg-cover bg-center h-96 bg-gray-100" style={{backgroundImage: 'url("https://cdn.pixabay.com/index/2024/01/15/23-56-06-601_1920x550.jpg")'}}>
 				<div className="container mx-auto text-center py-10">
 					<Navbar />
 					<div className="mt-20">
@@ -19,7 +22,7 @@ const Page = async ({searchParams}) => {
 			</div>
 
 			<div className="w-full bg-gray-100 ">
-				<TrendingSearch/>
+				<TrendingSearch />
 			</div>
 
 			<div className="bg-white w-full min-h-[500px]">

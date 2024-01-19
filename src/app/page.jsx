@@ -6,7 +6,7 @@ export default function Home() {
 		<main className="min-h-screen h-full relative bg-cover bg-center" style={{backgroundImage: 'url("https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg")'}}>
 			<div className="container mx-auto text-center py-10">
 				<Navbar />
-				<h1 className="text-6xl text-white font-bold mb-4 mt-24">
+				<h1 className="text-2xl md:text-4xl lg:text-6xl text-white font-bold mb-4 mt-24">
 					Discover over 2,000,000 <br /> free Stock Images
 				</h1>
 				<div className="mt-20"><SearchBar/></div>

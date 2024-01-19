@@ -12,7 +12,7 @@ const ImageCard = ({data}) => {
 		<>
 			<div className="w-full break-inside">
 				<Image src={data.webformatURL} alt="" width={data.webformatWidth} height={data.webformatHeight} onClick={() => setDialogContent(data)} className="w-full rounded-md cursor-pointer" />
-				<div className="flex gap-2 py-3">
+				<div className="flex gap-2 py-3 flex-wrap">
 					{data.tags.split(",").map((tag) => (
 						<div key={tag} className="rounded text-sm bg-gray-100 max-w-fit px-3 text-center py-1 first-letter:uppercase">
 							{tag}

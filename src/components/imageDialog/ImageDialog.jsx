@@ -1,10 +1,10 @@
 "use client";
 
-import { saveDownloadHistory } from "@/lib/actions";
+import {saveDownloadHistory} from "@/lib/actions";
 import axios from "axios";
 import Image from "next/image";
 import React, {useState} from "react";
-import {AiOutlineCloseSquare} from "react-icons/ai";
+import {IoMdClose} from "react-icons/io";
 import {TiTick} from "react-icons/ti";
 
 export const ImageDialog = ({data, onClose}) => {
@@ -23,6 +23,7 @@ export const ImageDialog = ({data, onClose}) => {
 	};
 
 	const handleDownload = async () => {
+		if (selectedSize.small === false && selectedSize.large === false) return;
 		setDownloading(true);
 		const imageUrls = [];
 		if (selectedSize.small) imageUrls.push(data.webformatURL);
@@ -40,8 +41,8 @@ export const ImageDialog = ({data, onClose}) => {
 		} catch (error) {
 			console.error("Error downloading images:", error);
 		} finally {
-            await saveDownloadHistory(data);
-            setDownloading(false);
+			await saveDownloadHistory(data);
+			setDownloading(false);
 		}
 	};
 	return (
@@ -51,7 +52,7 @@ export const ImageDialog = ({data, onClose}) => {
 				<div className="bg-gray-100 p-5 rounded-t-md">
 					<div className="flex justify-between">
 						<span className="font-medium">Preview ID: {data.id}</span>
-						<AiOutlineCloseSquare className="w-7 h-7 cursor-pointer text-gray-600" onClick={() => onClose()} />
+						<IoMdClose className="w-7 h-7 cursor-pointer text-gray-600" onClick={() => onClose()} />
 					</div>
 				</div>
 				<div className="p-5 flex flex-col lg:flex-row gap-10">

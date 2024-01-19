@@ -6,78 +6,95 @@ const downloadHistorySchema = new mongoose.Schema(
 			type: Number,
 			required: true,
 		},
-        type: {
+		pageURL: {
 			type: String,
 			required: true,
 		},
-        tags: {
+		type: {
 			type: String,
 			required: true,
 		},
-        previewURL: {
+		tags: {
 			type: String,
 			required: true,
 		},
-        previewWidth: {
-			type: Number,
-			required: true,
-		},
-        previewHeight: {
-			type: Number,
-			required: true,
-		},
-        webformatURL: {
+		previewURL: {
 			type: String,
 			required: true,
 		},
-        webformatWidth: {
+		previewWidth: {
 			type: Number,
 			required: true,
 		},
-        webformatHeight: {
+		previewHeight: {
 			type: Number,
 			required: true,
 		},
-        largeImageURL: {
+		webformatURL: {
 			type: String,
 			required: true,
 		},
-        imageWidth: {
+		webformatWidth: {
 			type: Number,
 			required: true,
 		},
-        imageHeight: {
+		webformatHeight: {
 			type: Number,
 			required: true,
 		},
-        views: {
-			type: Number,
-			required: true,
-		},
-        downloads: {
-			type: Number,
-			required: true,
-		},
-        likes: {
-			type: Number,
-			required: true,
-		},
-        user_id: {
-			type: Number,
-			required: true,
-		},
-        user: {
+		largeImageURL: {
 			type: String,
 			required: true,
 		},
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }
+		imageWidth: {
+			type: Number,
+			required: true,
+		},
+		imageHeight: {
+			type: Number,
+			required: true,
+		},
+		views: {
+			type: Number,
+			required: true,
+		},
+		downloads: {
+			type: Number,
+			required: true,
+		},
+		likes: {
+			type: Number,
+			required: true,
+		},
+		user_id: {
+			type: Number,
+			required: true,
+		},
+		user: {
+			type: String,
+			required: true,
+		},
+		owner: {
+			type: Schema.Types.ObjectId,
+			ref: "User",
+		},
 	},
 	{timestamps: true},
 );
 
+const searchHistorySchema = new mongoose.Schema(
+	{
+		keyword: {
+			type: String,
+			required: true,
+		},
+		owner: {
+			type: Schema.Types.ObjectId,
+			ref: "User",
+		},
+	},
+	{timestamps: true},
+);
 
 const userSchema = new mongoose.Schema(
 	{
@@ -95,10 +112,11 @@ const userSchema = new mongoose.Schema(
 		},
 		image: {
 			type: String,
-		}
+		},
 	},
 	{timestamps: true},
 );
 
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const DownloadHistory = mongoose.models?.DownloadHistory || mongoose.model("DownloadHistory", downloadHistorySchema);
+export const SearchHistory = mongoose.models?.SearchHistory || mongoose.model("SearchHistory", searchHistorySchema);

@@ -1,6 +1,6 @@
 "use server";
 
-import {User, DownloadHistory} from "./models";
+import {User, DownloadHistory, SearchHistory} from "./models";
 import {connectToDb} from "./utils";
 import {signIn, signOut, auth} from "./auth";
 const mongoose = require("mongoose");
@@ -42,12 +42,52 @@ export const getDownloadHistory = async () => {
 	try {
 		const session = await auth();
 
-		if (session.user) {
+		if (session && session.user) {
 			await connectToDb();
 			const user = await User.findOne({email: session.user.email});
-			const downloadHistory = await DownloadHistory.find({owner: new mongoose.Types.ObjectId(user._id)});
+			const downloadHistory = await DownloadHistory.find({owner: new mongoose.Types.ObjectId(user._id)}).select("-owner");
 			return downloadHistory;
 		}
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const saveSearchHistory = async (data) => {
+	try {
+		await connectToDb();
+		const session = await auth();
+
+		if (session && session.user) {
+			const user = await User.findOne({email: session.user.email});
+			data.owner = user._id;
+		}
+		const searchHistory = new SearchHistory(data);
+		await searchHistory.save();
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const topKeywords = async () => {
+	try {
+		await connectToDb();
+		const topKeywords = await SearchHistory.aggregate([
+			{
+				$group: {
+					_id: "$keyword",
+                    keyword: { $first: '$keyword' },
+					count: {$sum: 1},
+				},
+			},
+			{
+				$sort: {count: -1},
+			},
+			{
+				$limit: 10,
+			},
+		]);
+        return topKeywords;
 	} catch (error) {
 		throw error;
 	}
