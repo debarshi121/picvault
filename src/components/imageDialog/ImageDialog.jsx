@@ -49,7 +49,7 @@ export const ImageDialog = ({data, onClose}) => {
 				<div className="bg-gray-100 p-5 rounded-t-md">
 					<div className="flex justify-between">
 						<span className="font-medium">Preview ID: {data.id}</span>
-						<AiOutlineCloseSquare className="w-7 h-7 cursor-pointer" onClick={() => onClose()} />
+						<AiOutlineCloseSquare className="w-7 h-7 cursor-pointer text-gray-600" onClick={() => onClose()} />
 					</div>
 				</div>
 				<div className="p-5 flex flex-col lg:flex-row gap-10">
