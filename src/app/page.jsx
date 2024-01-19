@@ -9,7 +9,7 @@ export default function Home() {
 				<h1 className="text-6xl text-white font-bold mb-4 mt-24">
 					Discover over 2,000,000 <br /> free Stock Images
 				</h1>
-				<SearchBar />
+				<div className="mt-20"><SearchBar/></div>
 				<div className="rounded-md mx-auto backdrop-filter backdrop-blur-lg border-2 text-white border-gray-300 py-1 px-5 max-w-fit mt-5">
 					<span className="text-sm font-semibold">Trending: </span> flowers, love, forest, river
 				</div>

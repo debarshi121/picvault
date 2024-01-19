@@ -8,7 +8,7 @@ const Navbar = async () => {
 	return (
 		<nav className="backdrop-filter backdrop-blur-lg py-4 px-8 w-full rounded-md border-2 border-gray-300 flex justify-between font-semibold">
 			<Link href="/" className="text-white">
-				Homepage
+				Home
 			</Link>
 			<NavLinks session={session} />
 		</nav>

@@ -1,5 +1,6 @@
 "use client";
 
+import { saveDownloadHistory } from "@/lib/actions";
 import axios from "axios";
 import Image from "next/image";
 import React, {useState} from "react";
@@ -39,7 +40,8 @@ export const ImageDialog = ({data, onClose}) => {
 		} catch (error) {
 			console.error("Error downloading images:", error);
 		} finally {
-			setDownloading(false);
+            await saveDownloadHistory(data);
+            setDownloading(false);
 		}
 	};
 	return (

@@ -13,7 +13,7 @@ const SearchBar = () => {
 	};
 
 	return (
-		<div className="max-w-xl mx-auto mt-20">
+		<div className="max-w-xl mx-auto">
 			<form onSubmit={handleSubmit}>
 				<div className="flex items-center rounded-md backdrop-filter backdrop-blur-lg border-2 border-gray-300 py-2 px-3">
 					<HiMiniMagnifyingGlass className="text-white w-6 h-6 mr-2" />
