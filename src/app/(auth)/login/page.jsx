@@ -1,4 +1,4 @@
-import {handleGithubLogin} from "@/lib/actions";
+import {handleFacebookLogin, handleGithubLogin, handleGoogleLogin} from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,12 +16,14 @@ const LoginPage = () => {
 								</h2>
 							</div>
 							<div className="mt-16 grid space-y-4">
-								<button className="group w-full h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-									<div className="relative flex items-center space-x-4 justify-center">
-										<Image src="/google.svg" width={50} height={50} className="absolute left-0 w-5" alt="google logo" />
-										<span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
-									</div>
-								</button>
+								<form action={handleGoogleLogin}>
+									<button className="group w-full h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
+										<div className="relative flex items-center space-x-4 justify-center">
+											<Image src="/google.svg" width={50} height={50} className="absolute left-0 w-5" alt="google logo" />
+											<span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Google</span>
+										</div>
+									</button>
+								</form>
 								<form action={handleGithubLogin}>
 									<button className="group w-full h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
 										<div className="relative flex items-center space-x-4 justify-center">
@@ -30,14 +32,16 @@ const LoginPage = () => {
 										</div>
 									</button>
 								</form>
-								<button
-									className="group w-full h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+								<form action={handleFacebookLogin}>
+									<button
+										className="group w-full h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
                                      hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-									<div className="relative flex items-center space-x-4 justify-center">
-										<Image src="/facebook.svg" width={50} height={50} className="absolute left-0 w-5" alt="google logo" />
-										<span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Facebook</span>
-									</div>
-								</button>
+										<div className="relative flex items-center space-x-4 justify-center">
+											<Image src="/facebook.svg" width={50} height={50} className="absolute left-0 w-5" alt="google logo" />
+											<span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue with Facebook</span>
+										</div>
+									</button>
+								</form>
 
 								<Link
 									href="/"

@@ -9,6 +9,14 @@ export const handleGithubLogin = async () => {
 	await signIn("github");
 };
 
+export const handleGoogleLogin = async () => {
+	await signIn("google");
+};
+
+export const handleFacebookLogin = async () => {
+	await signIn("facebook");
+};
+
 export const handleLogout = async () => {
 	await signOut();
 };
@@ -76,7 +84,7 @@ export const topKeywords = async () => {
 			{
 				$group: {
 					_id: "$keyword",
-                    keyword: { $first: '$keyword' },
+					keyword: {$first: "$keyword"},
 					count: {$sum: 1},
 				},
 			},
@@ -87,7 +95,7 @@ export const topKeywords = async () => {
 				$limit: 10,
 			},
 		]);
-        return topKeywords;
+		return topKeywords;
 	} catch (error) {
 		throw error;
 	}
