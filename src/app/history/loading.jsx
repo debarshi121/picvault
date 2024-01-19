@@ -11,14 +11,12 @@ const loading = () => {
 					</div>
 				</div>
 			</div>
-			<div className="w-full bg-gray-200 ">{/* <TrendingSearch /> */}</div>
+
 			<div className="bg-white w-full min-h-[500px]">
 				<div className="container mx-auto py-10">
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-						{Array.from({length: 6}).map((item) => (
-							<div key={item} className="w-full h-64 rounded break-inside bg-gray-200"></div>
-						))}
-					</div>
+					{Array.from({length: 3}).map((item) => (
+						<div key={item} className="max-w-4xl bg-gray-300 w-full rounded mb-5 h-[60px] mx-auto"></div>
+					))}
 				</div>
 			</div>
 		</main>

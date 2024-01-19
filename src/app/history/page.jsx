@@ -4,6 +4,7 @@ import {getDownloadHistory} from "@/lib/actions";
 import React from "react";
 
 const page = async () => {
+	await new Promise((res, rej) => setTimeout(res, 5000));
 	const downloadHistory = await getDownloadHistory();
 	return (
 		<main className="min-h-screen h-full">

@@ -2,12 +2,15 @@
 
 import {saveDownloadHistory} from "@/lib/actions";
 import axios from "axios";
+import clsx from "clsx";
 import Image from "next/image";
 import React, {useState} from "react";
 import {IoMdClose} from "react-icons/io";
 import {TiTick} from "react-icons/ti";
 
 export const ImageDialog = ({data, onClose}) => {
+	const [loadingImage, setLoadingImage] = useState(true);
+
 	const [selectedSize, setSelectedSize] = useState({
 		small: false,
 		large: false,
@@ -57,13 +60,13 @@ export const ImageDialog = ({data, onClose}) => {
 				</div>
 				<div className="p-5 flex flex-col lg:flex-row gap-10">
 					<div className="w-full lg:w-8/12 xl:w-9/12">
-						<Image src={data.largeImageURL} alt="" width={data.webformatWidth} height={data.webformatHeight} className="w-full rounded-md" />
+						<Image src={data.largeImageURL} priority alt="" width={data.webformatWidth} height={data.webformatHeight} className="w-full rounded-md object-contain" />
 					</div>
 					<div className="w-full lg:w-4/12 xl:w-3/12">
 						<section>
 							<h2 className="font-medium text-xl">Download</h2>
 							<ul className="w-full mt-5 border rounded-md text-sm">
-								<li className="flex justify-between p-3 bg-gray-100 rounded-t-md border-b">
+								<li className={clsx("flex justify-between p-3 rounded-t-md border-b", selectedSize.small && "bg-gray-50")}>
 									<div>Small</div>
 									<div className="text-right flex items-center">
 										<span className="font-medium mr-5">{data.webformatWidth + "x" + data.webformatHeight}</span>
@@ -77,7 +80,7 @@ export const ImageDialog = ({data, onClose}) => {
 										</div>
 									</div>
 								</li>
-								<li className="flex justify-between p-3  rounded-t-md">
+								<li className={clsx("flex justify-between p-3 rounded-t-md border-b", selectedSize.large && "bg-gray-50")}>
 									<div>Large</div>
 									<div className="text-right flex items-center">
 										<span className="font-medium mr-5">{data.imageWidth + "x" + data.imageHeight}</span>
