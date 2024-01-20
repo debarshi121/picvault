@@ -10,7 +10,7 @@ const Navbar = async () => {
 	return (
 		<nav className="backdrop-filter backdrop-blur-lg py-4 px-4 rounded-md border-2 border-gray-300 flex justify-between items-center font-semibold">
 			<Link href="/" className="text-white">
-				<Image src="/logo.png" alt="" height={150} width={150} className="w-28" />
+				<Image src="/logo.svg" alt="" height={150} width={150} className="w-28" />
 			</Link>
 			<NavLinks session={session} />
 			<HamburgerMenu session={session} />

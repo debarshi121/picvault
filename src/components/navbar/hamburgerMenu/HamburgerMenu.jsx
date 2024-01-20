@@ -21,20 +21,20 @@ const HamburgerMenu = ({session}) => {
 
 					<ul className="p-3 space-y-2 text-left">
 						<li>
-							<Link href="/" className="text-gray-600 hover:text-gray-400">
+							<Link href="/" className="text-gray-600 hover:text-gray-400" onClick={() => toggleHamburgerMenu(false)}>
 								Home
 							</Link>
 						</li>
 						{session ? (
 							<>
 								<li>
-									<Link href="/history" className="text-gray-600 hover:text-gray-400">
+									<Link href="/history" className="text-gray-600 hover:text-gray-400" onClick={() => toggleHamburgerMenu(false)}>
 										History
 									</Link>
 								</li>
 								<li>
 									<form action={handleLogout}>
-										<button type="submit" className="text-red-500">
+										<button type="submit" className="text-red-500" onClick={() => toggleHamburgerMenu(false)}>
 											Logout
 										</button>
 									</form>
@@ -43,12 +43,12 @@ const HamburgerMenu = ({session}) => {
 						) : (
 							<>
 								<li>
-									<Link href="/login" className="text-gray-600 hover:text-gray-400">
+									<Link href="/login" className="text-gray-600 hover:text-gray-400" onClick={() => toggleHamburgerMenu(false)}>
 										Login
 									</Link>
 								</li>
 								<li>
-									<Link href="/login" className="text-gray-600 hover:text-gray-400">
+									<Link href="/login" className="text-gray-600 hover:text-gray-400" onClick={() => toggleHamburgerMenu(false)}>
 										Create Account
 									</Link>
 								</li>
