@@ -10,7 +10,7 @@ const LoginPage = () => {
 					<div className="rounded-xl bg-white shadow-xl">
 						<div className="p-6 sm:p-16">
 							<div className="space-y-4">
-								<img src="https://tailus.io/sources/blocks/social/preview/images/icon.svg" loading="lazy" className="w-10 mx-auto" alt="tailus logo" />
+								<Image src="/icon.png" loading="lazy" width={150} height={150} className="w-10 mx-auto" alt="picvault logo" />
 								<h2 className="mb-8 text-2xl text-cyan-900 font-bold text-center">
 									Sign in to unlock the <br /> best of PicVault.
 								</h2>
