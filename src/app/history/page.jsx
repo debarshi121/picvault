@@ -6,6 +6,7 @@ import React from "react";
 const page = async () => {
 	// await new Promise((res, rej) => setTimeout(res, 5000));
 	const downloadHistory = await getDownloadHistory();
+	const data = JSON.parse(JSON.stringify(downloadHistory));
 	return (
 		<main className="min-h-screen h-full">
 			<div className="bg-cover bg-center h-96" style={{backgroundImage: 'url("https://cdn.pixabay.com/index/2024/01/15/23-56-06-601_1920x550.jpg")'}}>
@@ -20,7 +21,7 @@ const page = async () => {
 			</div>
 
 			<div className="bg-white w-full min-h-[500px]">
-				<HistoryList downloadHistory={downloadHistory} />
+				<HistoryList downloadHistory={data} />
 			</div>
 		</main>
 	);

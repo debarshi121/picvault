@@ -49,7 +49,7 @@ export const ImageDialog = ({data, onClose}) => {
 		}
 	};
 	return (
-		<div className="fixed inset-0 flex items-center justify-center py-10">
+		<div className="fixed inset-0 flex items-center justify-center">
 			<div className="absolute inset-0 bg-black opacity-50"></div>
 			<div className="z-10 bg-white w-11/12 xl:w-9/12 rounded-md mx-auto overflow-auto" style={{maxHeight: "calc(100vh - 40px)"}}>
 				<div className="bg-gray-100 p-5 rounded-t-md">
