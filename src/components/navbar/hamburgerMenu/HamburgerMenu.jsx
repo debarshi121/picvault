@@ -34,7 +34,7 @@ const HamburgerMenu = ({session}) => {
 								</li>
 								<li>
 									<form action={handleLogout}>
-										<button type="submit" className="text-red-500" onClick={() => toggleHamburgerMenu(false)}>
+										<button type="submit" className="text-red-500">
 											Logout
 										</button>
 									</form>
