@@ -21,7 +21,7 @@ const Page = async ({searchParams}) => {
 				</div>
 			</div>
 
-			<div className="w-full bg-gray-100 ">
+			<div className="w-full bg-gray-100 mx-auto">
 				<TrendingSearch />
 			</div>
 

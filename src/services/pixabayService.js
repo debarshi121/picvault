@@ -19,7 +19,7 @@ export const getBase64 = async (imageUrl) => {
 
 export const getSearchResults = async (query) => {
 	try {
-		const res = await axios.get(`https://pixabay.com/api/?key=4671622-fba051603e1d8f8c84464f590&q=${query}&image_type=photo&pretty=true`);
+		const res = await axios.get(`https://pixabay.com/api/?key=${process.env.PIXABAY_API_KEY}&q=${query}&image_type=photo&pretty=true`);
 		const blurredDataUrls = await addBlurredDataUrls(res.data.hits);
 		const dataWithblurredDataUrl = {
 			...res.data,
