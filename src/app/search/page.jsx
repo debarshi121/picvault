@@ -6,7 +6,6 @@ import {saveSearchHistory} from "@/lib/actions";
 import {getSearchResults} from "@/services/pixabayService";
 
 const Page = async ({searchParams}) => {
-	// await new Promise((res, rej) => setTimeout(res, 5000));
 	const data = await getSearchResults(searchParams.q);
 	await saveSearchHistory({keyword: searchParams.q});
 

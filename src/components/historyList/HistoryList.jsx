@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, {useState} from "react";
 import {IoArrowDownSharp} from "react-icons/io5";
 import {ImageDialog} from "../imageDialog/ImageDialog";
-import { formatDate } from "@/lib/utils";
+import {formatDate} from "@/lib/utils";
 
 const HistoryList = ({downloadHistory}) => {
 	const [dialogContent, setDialogContent] = useState(null);

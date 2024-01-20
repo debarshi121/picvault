@@ -78,6 +78,10 @@ const downloadHistorySchema = new mongoose.Schema(
 			type: Schema.Types.ObjectId,
 			ref: "User",
 		},
+		blurredDataUrl: {
+			type: String,
+			required: true,
+		},
 	},
 	{timestamps: true},
 );
