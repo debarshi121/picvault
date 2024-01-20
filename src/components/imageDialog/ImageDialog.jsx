@@ -60,7 +60,7 @@ export const ImageDialog = ({data, onClose}) => {
 				</div>
 				<div className="p-5 flex flex-col lg:flex-row gap-10">
 					<div className="w-full lg:w-8/12 xl:w-9/12">
-						<Image src={data.largeImageURL} priority alt="" width={data.webformatWidth} height={data.webformatHeight} className="w-full rounded-md object-contain" />
+						<Image src={data.largeImageURL}  alt="" width={data.webformatWidth} height={data.webformatHeight} className="w-full rounded-md object-contain" />
 					</div>
 					<div className="w-full lg:w-4/12 xl:w-3/12">
 						<section>
