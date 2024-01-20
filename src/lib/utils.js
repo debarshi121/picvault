@@ -12,6 +12,11 @@ export const formatDate = (dateString) => {
 	return formattedDate;
 };
 
+export const getRandomItemFromArray = (arr) => {
+	const randomIndex = Math.floor(Math.random() * arr.length);
+	return arr[randomIndex];
+};
+
 const connection = {};
 
 export const connectToDb = async () => {

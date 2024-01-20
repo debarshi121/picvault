@@ -19,7 +19,7 @@ const HamburgerMenu = ({session}) => {
 				<div className="fixed top-0 left-0 flex bg-white w-full min-h-20 rounded">
 					<IoCloseSharp className="text-gray-600 w-6 h-6 right-2 top-2 absolute" onClick={() => toggleHamburgerMenu(false)} />
 
-					<ul className="p-3 space-y-2 text-left">
+					<ul className="p-3 space-y-5 text-left">
 						<li>
 							<Link href="/" className="text-gray-600 hover:text-gray-400" onClick={() => toggleHamburgerMenu(false)}>
 								Home

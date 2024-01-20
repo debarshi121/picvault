@@ -1,12 +1,15 @@
 import Navbar from "@/components/navbar/Navbar";
 import SearchBar from "@/components/searchbar/SearchBar";
 import {topKeywords} from "@/lib/actions";
+import {backgroundImageArray} from "@/lib/data";
+import {getRandomItemFromArray} from "@/lib/utils";
 
 const Home = async () => {
 	const data = await topKeywords();
 	const keywords = data.slice(0, 5).map((item) => item.keyword);
+	const bgImage = getRandomItemFromArray(backgroundImageArray);
 	return (
-		<main className="min-h-screen h-full relative bg-cover bg-center" style={{backgroundImage: 'url("https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg")'}}>
+		<main className="min-h-screen h-full relative bg-cover bg-center bg-gray-200" style={{backgroundImage: `url(${bgImage})`}}>
 			<div className="container mx-auto text-center py-10">
 				<Navbar />
 				<h1 className="text-2xl md:text-4xl lg:text-6xl text-white font-bold mb-4 mt-24">
