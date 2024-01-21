@@ -9,8 +9,7 @@ import {IoMdClose} from "react-icons/io";
 import {TiTick} from "react-icons/ti";
 
 export const ImageDialog = ({data, onClose}) => {
-	const [loadingImage, setLoadingImage] = useState(true);
-
+	console.log(data.blurredDataUrl);
 	const [selectedSize, setSelectedSize] = useState({
 		small: false,
 		large: false,
