@@ -22,7 +22,7 @@ const NavLinks = ({session}) => {
 						</li>
 						<li>
 							<form action={handleLogout}>
-								<button type="submit" className="text-white hover:text-gray-200 border-2 rounded-md px-2">
+								<button type="submit" className="text-white hover:bg-gray-100 hover:text-gray-500 border-2 rounded-md px-2">
 									Logout
 								</button>
 							</form>
