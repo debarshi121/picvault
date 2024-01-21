@@ -3,6 +3,7 @@
 import {User, DownloadHistory, SearchHistory} from "./models";
 import {connectToDb} from "./utils";
 import {signIn, signOut, auth} from "./auth";
+import {unstable_noStore as noStore} from "next/cache";
 const mongoose = require("mongoose");
 
 export const handleGithubLogin = async () => {
@@ -47,13 +48,16 @@ export const saveDownloadHistory = async (data) => {
 };
 
 export const getDownloadHistory = async () => {
+	noStore();
 	try {
 		const session = await auth();
 
 		if (session && session.user) {
 			await connectToDb();
 			const user = await User.findOne({email: session.user.email});
-			const downloadHistory = await DownloadHistory.find({owner: new mongoose.Types.ObjectId(user._id)}).select("-owner");
+			const downloadHistory = await DownloadHistory.find({owner: new mongoose.Types.ObjectId(user._id)})
+				.select("-owner")
+				.sort({updatedAt: -1});
 			return downloadHistory;
 		}
 	} catch (error) {
